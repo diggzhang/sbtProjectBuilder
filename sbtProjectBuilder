@@ -1,0 +1,18 @@
+#!/bin/sh
+echo "Useage: $ ./sbtProjectBuilder <project_name>"
+
+projectName=$1
+
+echo "clean folder ......"
+rm -rf src/{main,test}/{java,resources,scala
+rm -rf lib project target
+
+echo "build project folder ......"
+mkdir -p src/{main,test}/{java,resources,scala}
+mkdir lib project target
+
+echo "initial build.sbt file ......"
+echo '' > build.sbt
+echo "name := \""$projectName"\"" > build.sbt
+echo 'version := "1.0"
+scalaVersion := "2.11.8"' >> build.sbt
